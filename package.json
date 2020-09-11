@@ -1,10 +1,10 @@
 {
-  "name": "node-express-mongoose-boilerplate",
-  "version": "1.3.0",
-  "description": "A boilerplate for building production-ready RESTful APIs using Node.js, Express, and Mongoose",
+  "name": "ph-covid-19-api",
+  "version": "1.0.0",
+  "description": "RESTful APIs for COVID-19 cases in the Philippines",
   "main": "src/index.js",
   "repository": "https://github.com/hagopj13/node-express-mongoose-boilerplate.git",
-  "author": "Hagop Jamkojian <hagopj13@gmail.com>",
+  "author": "Emilio Gozo <emil.gozo@gmail.com>",
   "license": "MIT",
   "engines": {
     "node": ">=12.0.0"
@@ -25,26 +25,15 @@
     "docker:test": "docker-compose -f docker-compose.yml -f docker-compose.test.yml up"
   },
   "keywords": [
+    "covid-19",
+    "health",
+    "philippines",
     "node",
     "node.js",
-    "boilerplate",
-    "generator",
-    "express",
     "rest",
     "api",
     "mongodb",
-    "mongoose",
-    "es6",
-    "es7",
-    "es8",
-    "es9",
-    "jest",
-    "travis",
-    "docker",
-    "passport",
-    "joi",
-    "eslint",
-    "prettier"
+    "mongoose"
   ],
   "dependencies": {
     "@hapi/joi": "^17.1.0",
