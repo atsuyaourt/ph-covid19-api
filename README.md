@@ -8,6 +8,10 @@ To view the list of available APIs and their specifications, run the server and 
 
 List of available routes:
 
+**User routes**:\
+`GET /v1/cases` - get all cases\
+`GET /v1/cases/:caseId` - get case\
+
 **Auth routes**:\
 `POST /v1/auth/register` - register\
 `POST /v1/auth/login` - login\
