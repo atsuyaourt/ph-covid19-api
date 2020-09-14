@@ -26,19 +26,19 @@ module.exports = router;
  *      summary: Get all cases
  *      description: Anyone can retrieve all cases.
  *      tags: [Cases]
- *      security:
- *        - bearerAuth: []
  *      parameters:
  *        - in: query
- *          name: name
+ *          name: healthStatus
  *          schema:
  *            type: string
- *          description: User name
+ *            enum: [asymptomatic, mild, severe, critical, died, recovered, invalid]
+ *          description: Known current health status of patient
  *        - in: query
- *          name: role
+ *          name: removalType
  *          schema:
  *            type: string
- *          description: User role
+ *            enum: [recovered, died, duplicate]
+ *          description: Type of removal
  *        - in: query
  *          name: sortBy
  *          schema:
@@ -50,7 +50,7 @@ module.exports = router;
  *            type: integer
  *            minimum: 1
  *          default: 10
- *          description: Maximum number of users
+ *          description: Maximum number of cases
  *        - in: query
  *          name: page
  *          schema:
@@ -69,7 +69,7 @@ module.exports = router;
  *                  results:
  *                    type: array
  *                    items:
- *                      $ref: '#/components/schemas/User'
+ *                      $ref: '#/components/schemas/Case'
  *                  page:
  *                    type: integer
  *                    example: 1
@@ -94,24 +94,22 @@ module.exports = router;
  *  /cases/{id}:
  *    get:
  *      summary: Get a case
- *      description: Logged in users can fetch only their own user information. Only admins can fetch other users.
+ *      description: Anyone can fetch a specific case.
  *      tags: [Cases]
- *      security:
- *        - bearerAuth: []
  *      parameters:
  *        - in: path
  *          name: id
  *          required: true
  *          schema:
  *            type: string
- *          description: User id
+ *          description: Case id
  *      responses:
  *        "200":
  *          description: OK
  *          content:
  *            application/json:
  *              schema:
- *                 $ref: '#/components/schemas/User'
+ *                 $ref: '#/components/schemas/Case'
  *        "401":
  *          $ref: '#/components/responses/Unauthorized'
  *        "403":

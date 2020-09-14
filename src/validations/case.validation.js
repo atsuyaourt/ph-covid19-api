@@ -3,8 +3,8 @@ const { objectId } = require('./custom.validation');
 
 const getCases = {
   query: Joi.object().keys({
-    caseCode: Joi.string(),
     healthStatus: Joi.string(),
+    removalType: Joi.string(),
     sortBy: Joi.string(),
     limit: Joi.number().integer(),
     page: Joi.number().integer(),
