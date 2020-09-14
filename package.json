@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "RESTful APIs for COVID-19 cases in the Philippines",
   "main": "src/index.js",
-  "repository": "https://github.com/hagopj13/node-express-mongoose-boilerplate.git",
+  "repository": "https://github.com/emiliogozo/ph-covid19-api.git",
   "author": "Emilio Gozo <emil.gozo@gmail.com>",
   "license": "MIT",
   "engines": {
