@@ -1,5 +1,67 @@
 components:
   schemas:
+    Case:
+      type: object
+      properties:
+        id:
+          type: string
+        caseCode:
+          type: string
+        age:
+          type: number
+        ageGroup:
+          type: string
+        sex:
+          type: string
+          enum: [male, female]
+        dateSpecimen:
+          type: string
+          format: date-time
+        dateResultRelease:
+          type: string
+          format: date-time
+        dateRepConf:
+          type: string
+          format: date-time
+        dateDied:
+          type: string
+          format: date-time
+        dateRecover:
+          type: string
+          format: date-time
+        removalType:
+          type: string
+          enum: [recovered, died, duplicate]
+        isAdmitted:
+          type: boolean
+        regionRes:
+          type: string
+        provRes:
+          type: string
+        cityMunRes:
+          type: string
+        cityMuniPSGC:
+          type: string
+        healthStatus:
+          type: string
+          enum: [asymptomatic, mild, severe, critical, died, recovered]
+        isQuarantined:
+          type: boolean
+        dateOnset:
+          type: string
+          format: date-time
+        isPregnant:
+          type: boolean
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        deletedAt:
+          type: string
+          format: date-time
+
     User:
       type: object
       properties:
