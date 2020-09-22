@@ -5,9 +5,9 @@ const caseController = require('../../controllers/case.controller');
 
 const router = express.Router();
 
-router.route('/').get((req, res, next) => next(), validate(caseValidation.getCases), caseController.getCases);
+router.route('/').get(validate(caseValidation.getCases), caseController.getCases);
 
-router.route('/:caseId').get((req, res, next) => next(), validate(caseValidation.getCase), caseController.getCase);
+router.route('/:caseId').get(validate(caseValidation.getCase), caseController.getCase);
 
 module.exports = router;
 
