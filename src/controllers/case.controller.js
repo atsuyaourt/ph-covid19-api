@@ -5,7 +5,12 @@ const catchAsync = require('../utils/catchAsync');
 const { caseService } = require('../services');
 
 const getCases = catchAsync(async (req, res) => {
-  const filter = pick(req.query, ['healthStatus', 'removalType']);
+  const filter = {
+    deletedAt: {
+      $exists: 0,
+    },
+    ...pick(req.query, ['healthStatus', 'removalType']),
+  };
   const options = pick(req.query, ['sortBy', 'limit', 'page']);
   const result = await caseService.queryCases(filter, options);
   res.send(result);
