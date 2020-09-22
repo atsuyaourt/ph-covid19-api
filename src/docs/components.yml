@@ -9,8 +9,6 @@ components:
           type: string
         age:
           type: number
-        ageGroup:
-          type: string
         sex:
           type: string
           enum: [male, female]
@@ -42,6 +40,10 @@ components:
           type: string
         cityMuniPSGC:
           type: string
+        barangayRes:
+          type: string
+        barangayPSGC:
+          type: string
         healthStatus:
           type: string
           enum: [asymptomatic, mild, severe, critical, died, recovered]
@@ -52,6 +54,12 @@ components:
           format: date-time
         isPregnant:
           type: boolean
+        regionResGeo:
+          type: string
+        provResGeo:
+          type: string
+        cityMunResGeo:
+          type: string
         createdAt:
           type: string
           format: date-time

@@ -13,11 +13,6 @@ const caseSchema = mongoose.Schema(
       trim: true,
     },
     age: Number,
-    ageGroup: {
-      type: String,
-      trim: true,
-      lowercase: true,
-    },
     sex: {
       type: String,
       enum: sexes,
@@ -35,22 +30,26 @@ const caseSchema = mongoose.Schema(
     regionRes: {
       type: String,
       trim: true,
-      lowercase: true,
     },
     provRes: {
       type: String,
       trim: true,
-      lowercase: true,
     },
     cityMunRes: {
       type: String,
       trim: true,
-      lowercase: true,
     },
     cityMuniPSGC: {
       type: String,
       trim: true,
-      lowercase: true,
+    },
+    barangayRes: {
+      type: String,
+      trim: true,
+    },
+    barangayPSGC: {
+      type: String,
+      trim: true,
     },
     healthStatus: {
       type: String,
@@ -59,18 +58,21 @@ const caseSchema = mongoose.Schema(
     isQuarantined: Boolean,
     dateOnset: Date,
     isPregnant: Boolean,
-    createdAt: {
-      type: Date,
-      default: Date.now(),
+    regionResGeo: {
+      type: String,
+      trim: true,
     },
-    updatedAt: {
-      type: Date,
-      default: Date.now(),
+    provResGeo: {
+      type: String,
+      trim: true,
     },
-    deletedAt: {
-      type: Date,
-      default: Date.now(),
+    cityMunResGeo: {
+      type: String,
+      trim: true,
     },
+    createdAt: Date,
+    updatedAt: Date,
+    deletedAt: Date,
   },
   {
     timestamps: false,
