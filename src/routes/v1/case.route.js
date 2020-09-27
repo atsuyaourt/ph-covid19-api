@@ -7,6 +7,8 @@ const router = express.Router();
 
 router.route('/').get(validate(caseValidation.getCases), caseController.getCases);
 
+router.route('/stats').get(validate(caseValidation.getCasesStats), caseController.getCasesStats);
+
 router.route('/:caseId').get(validate(caseValidation.getCase), caseController.getCase);
 
 module.exports = router;

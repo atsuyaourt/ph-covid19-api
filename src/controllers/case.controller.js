@@ -24,7 +24,15 @@ const getCase = catchAsync(async (req, res) => {
   res.send(_case);
 });
 
+const getCasesStats = catchAsync(async (req, res) => {
+  const filter = pick(req.query, ['regionResGeo', 'provResGeo']);
+  const options = pick(req.query, ['sortBy', 'limit', 'page']);
+  const result = await caseService.queryCasesStats(filter, options);
+  res.send(result);
+});
+
 module.exports = {
   getCases,
   getCase,
+  getCasesStats,
 };
