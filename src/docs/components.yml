@@ -76,11 +76,11 @@ components:
         sex:
           type: string
           enum: [male, female]
-        regionRes:
+        regionResGeo:
           type: string
-        provRes:
+        provResGeo:
           type: string
-        cityMunRes:
+        cityMunResGeo:
           type: string
         healthStatus:
           type: string

@@ -40,9 +40,9 @@ const queryCasesStats = async (filter, options) => {
     {
       $group: {
         _id: {
-          regionRes: '$regionRes',
-          provRes: '$provRes',
-          cityMunRes: '$cityMunRes',
+          regionResGeo: '$regionResGeo',
+          provResGeo: '$provResGeo',
+          cityMunResGeo: '$cityMunResGeo',
           sex: '$sex',
           healthStatus: '$healthStatus',
         },
@@ -51,9 +51,9 @@ const queryCasesStats = async (filter, options) => {
     },
     {
       $project: {
-        regionRes: '$_id.regionRes',
-        provRes: '$_id.provRes',
-        cityMunRes: '$_id.cityMunRes',
+        regionResGeo: '$_id.regionResGeo',
+        provResGeo: '$_id.provResGeo',
+        cityMunResGeo: '$_id.cityMunResGeo',
         sex: '$_id.sex',
         healthStatus: '$_id.healthStatus',
         count: 1,
