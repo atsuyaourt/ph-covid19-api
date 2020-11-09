@@ -93,6 +93,87 @@ module.exports = router;
 /**
  * @swagger
  * path:
+ *  /cases/stats:
+ *    get:
+ *      summary: Get cases summary
+ *      description: Anyone can retrieve all cases.
+ *      tags: [Cases]
+ *      parameters:
+ *        - in: query
+ *          name: healthStatus
+ *          schema:
+ *            type: string
+ *            enum: [asymptomatic, mild, severe, critical, died, recovered, invalid]
+ *          description: Known current health status of patient
+ *        - in: query
+ *          name: removalType
+ *          schema:
+ *            type: string
+ *            enum: [recovered, died, duplicate]
+ *          description: Type of removal
+ *        - in: query
+ *          name: regionResGeo
+ *          schema:
+ *            type: string
+ *          description: GeoJSON Region Name
+ *        - in: query
+ *          name: provResGeo
+ *          schema:
+ *            type: string
+ *          description: GeoJSON Province Name
+ *        - in: query
+ *          name: sex
+ *          schema:
+ *            type: string
+ *            enum: [male, female]
+ *          description: Gender
+ *        - in: query
+ *          name: limit
+ *          schema:
+ *            type: integer
+ *            minimum: 1
+ *          default: 10
+ *          description: Maximum number of cases
+ *        - in: query
+ *          name: page
+ *          schema:
+ *            type: integer
+ *            minimum: 1
+ *            default: 1
+ *          description: Page number
+ *      responses:
+ *        "200":
+ *          description: OK
+ *          content:
+ *            application/json:
+ *              schema:
+ *                type: object
+ *                properties:
+ *                  results:
+ *                    type: array
+ *                    items:
+ *                      $ref: '#/components/schemas/CaseStats'
+ *                  page:
+ *                    type: integer
+ *                    example: 1
+ *                  limit:
+ *                    type: integer
+ *                    example: 10
+ *                  totalPages:
+ *                    type: integer
+ *                    example: 1
+ *                  totalResults:
+ *                    type: integer
+ *                    example: 1
+ *        "401":
+ *          $ref: '#/components/responses/Unauthorized'
+ *        "403":
+ *          $ref: '#/components/responses/Forbidden'
+ */
+
+/**
+ * @swagger
+ * path:
  *  /cases/{id}:
  *    get:
  *      summary: Get a case

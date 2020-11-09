@@ -69,6 +69,24 @@ components:
         deletedAt:
           type: string
           format: date-time
+    
+    CaseStats:
+      type: object
+      properties:
+        sex:
+          type: string
+          enum: [male, female]
+        regionRes:
+          type: string
+        provRes:
+          type: string
+        cityMunRes:
+          type: string
+        healthStatus:
+          type: string
+          enum: [asymptomatic, mild, severe, critical, died, recovered]
+        count:
+          type: number
 
     User:
       type: object
