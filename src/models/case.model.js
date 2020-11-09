@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const aggregatePaginate = require('mongoose-aggregate-paginate-v2');
 const { toJSON, paginate } = require('./plugins');
 
 const sexes = ['male', 'female'];
@@ -82,10 +83,16 @@ const caseSchema = mongoose.Schema(
 // add plugin that converts mongoose to json
 caseSchema.plugin(toJSON);
 caseSchema.plugin(paginate);
+caseSchema.plugin(aggregatePaginate);
 
 /**
  * @typedef Case
  */
 const Case = mongoose.model('Case', caseSchema);
+
+Case.aggregatePaginate.options = {
+  limit: 100,
+  customLabels: { docs: 'results' },
+};
 
 module.exports = Case;

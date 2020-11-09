@@ -25,8 +25,13 @@ const getCase = catchAsync(async (req, res) => {
 });
 
 const getCasesStats = catchAsync(async (req, res) => {
-  const filter = pick(req.query, ['regionResGeo', 'provResGeo']);
-  const options = pick(req.query, ['sortBy', 'limit', 'page']);
+  const filter = {
+    deletedAt: {
+      $exists: 0,
+    },
+    ...pick(req.query, ['regionResGeo', 'provResGeo']),
+  };
+  const options = pick(req.query, ['limit', 'page']);
   const result = await caseService.queryCasesStats(filter, options);
   res.send(result);
 });

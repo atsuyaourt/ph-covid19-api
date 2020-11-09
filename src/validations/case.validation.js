@@ -20,7 +20,7 @@ const getCase = {
 const getCasesStats = {
   query: Joi.object().keys({
     regionResGeo: Joi.string(),
-    sortBy: Joi.string(),
+    provResGeo: Joi.string(),
     limit: Joi.number().integer(),
     page: Joi.number().integer(),
   }),

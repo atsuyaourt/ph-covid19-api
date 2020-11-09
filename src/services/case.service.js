@@ -1,4 +1,4 @@
-const { Case, CasesStats } = require('../models');
+const { Case } = require('../models');
 
 /**
  * Query for cases
@@ -33,8 +33,36 @@ const getCaseById = async (id) => {
  * @returns {Promise<QueryResult>}
  */
 const queryCasesStats = async (filter, options) => {
-  const casesStats = await CasesStats.paginate(filter, options);
-  return casesStats;
+  // const casesStats = await CasesStats.paginate(filter, options);
+  const caseAgg = Case.aggregate([
+    { $match: filter },
+    { $sort: { createdAt: -1 } },
+    {
+      $group: {
+        _id: {
+          regionRes: '$regionRes',
+          provRes: '$provRes',
+          cityMunRes: '$cityMunRes',
+          healthStatus: '$healthStatus',
+        },
+        count: { $sum: 1 },
+      },
+    },
+    {
+      $project: {
+        regionRes: '$_id.regionRes',
+        provRes: '$_id.provRes',
+        cityMunRes: '$_id.cityMunRes',
+        healthStatus: '$_id.healthStatus',
+        count: 1,
+        _id: 0,
+      },
+    },
+  ]);
+  if (Object.keys(options).length === 0) {
+    return caseAgg;
+  }
+  return Case.aggregatePaginate(caseAgg, options);
 };
 
 module.exports = {
