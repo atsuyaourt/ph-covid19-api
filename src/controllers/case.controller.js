@@ -29,7 +29,7 @@ const getCasesStats = catchAsync(async (req, res) => {
     deletedAt: {
       $exists: 0,
     },
-    ...pick(req.query, ['regionResGeo', 'provResGeo']),
+    ...pick(req.query, ['healthStatus', 'removalType', 'sex', 'regionResGeo', 'provResGeo']),
   };
   const options = pick(req.query, ['limit', 'page']);
   const result = await caseService.queryCasesStats(filter, options);
