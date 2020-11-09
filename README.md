@@ -13,6 +13,7 @@ List of available routes:
 **User routes**:\
 `GET /v1/cases` - get all cases\
 `GET /v1/cases/:caseId` - get case\
+`GET /v1/cases/stats` - get cases stats
 
 **Auth routes**:\
 `POST /v1/auth/register` - register\
