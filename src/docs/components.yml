@@ -73,9 +73,6 @@ components:
     CaseStats:
       type: object
       properties:
-        sex:
-          type: string
-          enum: [male, female]
         regionResGeo:
           type: string
         provResGeo:

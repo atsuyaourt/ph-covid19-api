@@ -19,6 +19,7 @@ const getCase = {
 
 const getCasesStats = {
   query: Joi.object().keys({
+    level: Joi.string(),
     healthStatus: Joi.string(),
     removalType: Joi.string(),
     regionResGeo: Joi.string(),

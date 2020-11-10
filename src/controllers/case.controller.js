@@ -25,6 +25,7 @@ const getCase = catchAsync(async (req, res) => {
 });
 
 const getCasesStats = catchAsync(async (req, res) => {
+  const level = 'level' in req.query ? req.query.level : 'provResGeo';
   const filter = {
     deletedAt: {
       $exists: 0,
@@ -32,7 +33,7 @@ const getCasesStats = catchAsync(async (req, res) => {
     ...pick(req.query, ['healthStatus', 'removalType', 'sex', 'regionResGeo', 'provResGeo']),
   };
   const options = pick(req.query, ['limit', 'page']);
-  const result = await caseService.queryCasesStats(filter, options);
+  const result = await caseService.queryCasesStats(level, filter, options);
   res.send(result);
 });
 

@@ -100,6 +100,12 @@ module.exports = router;
  *      tags: [Cases]
  *      parameters:
  *        - in: query
+ *          name: level
+ *          schema:
+ *            type: string
+ *            enum: [provResGeo, cityMuniResGeo]
+ *          description: Aggregation level
+ *        - in: query
  *          name: healthStatus
  *          schema:
  *            type: string
